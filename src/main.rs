@@ -1,13 +1,14 @@
 /*
- * Reto #0
- * EL FAMOSO "FIZZ BUZZ"
- * Fecha publicación enunciado: 27/12/21
- * Fecha publicación resolución: 03/01/22
- * Dificultad: FÁCIL
- * Enunciado: Escribe un programa que muestre por consola (con un print) los números de 1 a 100 (ambos incluidos y con un salto de línea entre cada impresión), sustituyendo los siguientes:
- * - Múltiplos de 3 por la palabra "fizz".
- * - Múltiplos de 5 por la palabra "buzz".
- * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
+ * Reto #1
+ * ¿ES UN ANAGRAMA?
+ * Fecha publicación enunciado: 03/01/22
+ * Fecha publicación resolución: 10/01/22
+ * Dificultad: MEDIA
+ *
+ * Enunciado: Escribe una función que reciba dos palabras (String) y retorne verdadero o falso (Boolean) según sean o no anagramas.
+ * Un Anagrama consiste en formar una palabra reordenando TODAS las letras de otra palabra inicial.
+ * NO hace falta comprobar que ambas palabras existan.
+ * Dos palabras exactamente iguales no son anagrama.
  *
  * Información adicional:
  * - Usa el canal de nuestro discord (https://mouredev.com/discord) "🔁reto-semanal" para preguntas, dudas o prestar ayuda a la acomunidad.
@@ -18,13 +19,22 @@
  */
 
 fn main() {
-    for i in 1..101 {
-        if i % 3 == 0 && i % 5 == 0 {
-            println!("fizzbuzz");
-        } else if i % 3 == 0 {
-            println!("fizz");
-        } else if i % 5 == 0 {
-            println!("buzz");
-        }
+   println!("{}", is_anagram("amor".to_string(), "roma".to_string()))
+}
+
+fn is_anagram(word1: String, word2: String) -> bool {
+    let mut aux_word = String::new();
+    if word1 == word2 {
+        return false
     }
+
+    for letter in word1.chars().rev() {
+        aux_word.push(letter)
+    }
+
+    if word2 == aux_word {
+        return true;
+    }
+
+    return false
 }
