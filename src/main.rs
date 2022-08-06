@@ -1,14 +1,13 @@
-/*
- * Reto #1
- * ¿ES UN ANAGRAMA?
- * Fecha publicación enunciado: 03/01/22
- * Fecha publicación resolución: 10/01/22
- * Dificultad: MEDIA
+ /*
+ * Reto #2
+ * LA SUCESIÓN DE FIBONACCI
+ * Fecha publicación enunciado: 10/01/22
+ * Fecha publicación resolución: 17/01/22
+ * Dificultad: DIFÍCIL
  *
- * Enunciado: Escribe una función que reciba dos palabras (String) y retorne verdadero o falso (Boolean) según sean o no anagramas.
- * Un Anagrama consiste en formar una palabra reordenando TODAS las letras de otra palabra inicial.
- * NO hace falta comprobar que ambas palabras existan.
- * Dos palabras exactamente iguales no son anagrama.
+ * Enunciado: Escribe un programa que imprima los 50 primeros números de la sucesión de Fibonacci empezando en 0.
+ * La serie Fibonacci se compone por una sucesión de números en la que el siguiente siempre es la suma de los dos anteriores.
+ * 0, 1, 1, 2, 3, 5, 8, 13...
  *
  * Información adicional:
  * - Usa el canal de nuestro discord (https://mouredev.com/discord) "🔁reto-semanal" para preguntas, dudas o prestar ayuda a la acomunidad.
@@ -19,22 +18,16 @@
  */
 
 fn main() {
-   println!("{}", is_anagram("amor".to_string(), "roma".to_string()))
+     let mut number0: i128 = 0;
+     let mut number1: i128 = 1;
+
+     for _ in 0..10 { //34
+        println!("{}", number0);
+
+        let fibonacci: i128 = number0 + number1;
+
+        number0 = number1;
+        number1 = fibonacci;
+     }
 }
 
-fn is_anagram(word1: String, word2: String) -> bool {
-    let mut aux_word = String::new();
-    if word1 == word2 {
-        return false
-    }
-
-    for letter in word1.chars().rev() {
-        aux_word.push(letter)
-    }
-
-    if word2 == aux_word {
-        return true;
-    }
-
-    return false
-}
